@@ -74,12 +74,12 @@ class MBAR:
         Theta = results['Theta']
 
         if n == 0:
-            fu = results['free energies'][0] - results['free energies'][1]
+            fu = results['f'][0] - results['f'][1]
             d2fu = Theta[0, 0] + Theta[1, 1] - 2*Theta[0, 1]
             return np.array([fu]), np.array([[d2fu]])
 
         # Functions, whose number is n+1:
-        fu = np.array([results['free energies'][0] - results['free energies'][n]])
+        fu = np.array([results['f'][0] - results['f'][n]])
         yu = results['observables'][0:n]
 
         # Gradient:
