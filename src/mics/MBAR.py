@@ -65,7 +65,7 @@ class MBAR:
         n = A_n.shape[0]    # number of properties
 
         # Compute properties [0:n-1] at state 0 and property 0 at state 1:
-        smap = np.arange(2) if n == 0 else np.block([[np.zeros(n, np.int), 1],  # states
+        smap = np.arange(2) if n == 0 else np.block([[np.zeros(n, np.int32), 1],  # states
                                                      [np.arange(n), 0]])        # properties
 
         results = self.MBAR.computeExpectationsInner(A_n, u_ln, smap, return_theta=True)
