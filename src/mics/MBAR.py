@@ -59,7 +59,7 @@ class MBAR:
     # ======================================================================================
     def __reweight__(self, mixture, u, y, ref=0):
         u_ln = np.stack([np.hstack(u).flatten(),                    # new state = 0
-                         np.hstack(x[ref, :] for x in mixture.u)])  # reference state = 1
+                         np.hstack([x[ref, :] for x in mixture.u])])  # reference state = 1
 
         A_n = np.hstack(y)  # properties
         n = A_n.shape[0]    # number of properties
